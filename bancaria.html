@@ -8,10 +8,6 @@
 </head>
 <body>
 
-<div class="ticker-wrap">
-  <div class="ticker mono" id="ticker"></div>
-</div>
-
 <header class="site">
   <div class="container">
     <div class="logo">Cartera</div>
@@ -36,6 +32,7 @@
     <div class="tabs">
       <button class="active" data-tab="pf">Plazo fijo</button>
       <button data-tab="bv">Billeteras virtuales</button>
+      <button data-tab="prest">Préstamos</button>
       <button data-tab="mep">Dólar MEP</button>
     </div>
 
@@ -56,10 +53,24 @@
       </table>
     </div>
 
+    <div class="tab-panel" id="tab-prest">
+      <div class="section-head"><h2 style="font-size:1.1rem">Préstamos personales</h2><span class="updated" id="upd-prest1"></span></div>
+      <table class="data">
+        <thead><tr><th>Banco</th><th>TNA</th></tr></thead>
+        <tbody id="prestPersonalesTable"></tbody>
+      </table>
+
+      <div class="section-head" style="margin-top:26px"><h2 style="font-size:1.1rem">Préstamos hipotecarios</h2><span class="updated" id="upd-prest2"></span></div>
+      <table class="data">
+        <thead><tr><th>Banco</th><th>Tasa</th><th>Modalidad</th></tr></thead>
+        <tbody id="prestHipotecariosTable"></tbody>
+      </table>
+    </div>
+
     <div class="tab-panel" id="tab-mep">
       <div class="section-head"><h2 style="font-size:1.1rem">Dólar MEP por plataforma</h2><span class="updated" id="upd-mep"></span></div>
       <div class="grid-5" id="mepCards"></div>
-      <p class="muted" style="font-size:0.8rem;margin-top:10px">La más barata se destaca en verde. Precios de compra, orientativos.</p>
+      <p class="muted" style="font-size:0.8rem;margin-top:10px">La plataforma con mejor precio de venta se destaca en verde. Valores orientativos.</p>
     </div>
 
   </div>

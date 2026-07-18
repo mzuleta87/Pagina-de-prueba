@@ -54,11 +54,42 @@ const DATA = {
     { nombre: "Fiwind", tna: "22.0%", rindeDiario: "0.060%" },
   ],
 
+  prestamosPersonales: [
+    { banco: "Banco Nación", tna: "42.0%" },
+    { banco: "Banco Provincia", tna: "45.5%" },
+    { banco: "Banco Galicia", tna: "48.0%" },
+    { banco: "Banco Santander", tna: "49.2%" },
+    { banco: "Banco Macro", tna: "50.1%" },
+    { banco: "BBVA", tna: "51.0%" },
+  ],
+
+  prestamosHipotecarios: [
+    { banco: "Banco Nación", tasa: "4.5%", modalidad: "UVA, tasa fija" },
+    { banco: "Banco Ciudad", tasa: "6.0%", modalidad: "UVA, tasa mixta" },
+    { banco: "Banco Provincia", tasa: "6.5%", modalidad: "UVA, tasa fija" },
+    { banco: "Banco Galicia", tasa: "8.0%", modalidad: "UVA, tasa variable" },
+    { banco: "BBVA", tasa: "8.5%", modalidad: "UVA, tasa fija" },
+  ],
+
+  indicadoresMacro: [
+    { nombre: "Inflación Argentina (mensual)", valor: "2.1%", ambito: "Local" },
+    { nombre: "Inflación EE.UU. (interanual)", valor: "2.8%", ambito: "Internacional" },
+    { nombre: "Desempleo EE.UU.", valor: "4.1%", ambito: "Internacional" },
+    { nombre: "Índice de precios al productor EE.UU.", valor: "+0.3% m/m", ambito: "Internacional" },
+  ],
+
+  noticias: [
+    { titulo: "El BCRA mantuvo la tasa de referencia en la última reunión", fuente: "Ámbito", ambito: "Local" },
+    { titulo: "El Merval opera con subas lideradas por bancos y energéticas", fuente: "Cronista", ambito: "Local" },
+    { titulo: "La Fed dejó entrever una pausa en el ciclo de tasas", fuente: "Reuters", ambito: "Internacional" },
+    { titulo: "Wall Street cerró mixto tras el dato de empleo de EE.UU.", fuente: "Bloomberg", ambito: "Internacional" },
+  ],
+
   mep: [
-    { plataforma: "Mercado Pago", precio: "1.252,30", top: true },
-    { plataforma: "IOL", precio: "1.254,10" },
-    { plataforma: "Balanz", precio: "1.253,80" },
-    { plataforma: "Cocos", precio: "1.255,00" },
-    { plataforma: "Bull Market", precio: "1.254,50" },
+    { plataforma: "Mercado Pago", compra: "1.250,10", venta: "1.252,30", top: true },
+    { plataforma: "IOL", compra: "1.251,90", venta: "1.254,10" },
+    { plataforma: "Balanz", compra: "1.251,60", venta: "1.253,80" },
+    { plataforma: "Cocos", compra: "1.252,70", venta: "1.255,00" },
+    { plataforma: "Bull Market", compra: "1.252,30", venta: "1.254,50" },
   ],
 };

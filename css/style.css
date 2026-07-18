@@ -140,3 +140,17 @@ table.data tr.top td{color:var(--accent);font-weight:500;}
 
 footer.site{padding:26px 0;border-top:1px solid var(--line);}
 footer.site p{font-size:0.78rem;color:var(--ink-soft);margin:2px 0;}
+
+/* ---- noticias ---- */
+.noticia{
+  display:flex;align-items:baseline;gap:12px;
+  padding:12px 0;border-bottom:1px solid var(--line);
+}
+.noticia .tag{
+  font-size:0.68rem;font-family:'IBM Plex Mono',monospace;
+  padding:2px 7px;border-radius:4px;flex-shrink:0;
+}
+.noticia .tag.local{background:var(--accent-soft);color:var(--accent);}
+.noticia .tag.internacional{background:var(--warn-soft);color:var(--warn);}
+.noticia .titulo{font-size:0.9rem;flex:1;}
+.noticia .fuente{font-size:0.75rem;color:var(--ink-soft);flex-shrink:0;}

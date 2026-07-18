@@ -129,6 +129,55 @@ if (bvTable){
   });
 }
 
+// ---- financiera: panorama macro ----
+const macroCards = document.getElementById('macroCards');
+if (macroCards){
+  DATA.indicadoresMacro.forEach(m => {
+    macroCards.appendChild(el(`
+      <div class="card">
+        <div class="label">${m.nombre} <span class="pill" style="margin-left:4px">${m.ambito}</span></div>
+        <div class="value">${m.valor}</div>
+      </div>
+    `));
+  });
+}
+const noticiasList = document.getElementById('noticiasList');
+if (noticiasList){
+  DATA.noticias.forEach(n => {
+    noticiasList.appendChild(el(`
+      <div class="noticia">
+        <span class="tag ${n.ambito.toLowerCase()}">${n.ambito}</span>
+        <span class="titulo">${n.titulo}</span>
+        <span class="fuente">${n.fuente}</span>
+      </div>
+    `));
+  });
+}
+
+// ---- bancaria: préstamos personales ----
+const prestPersonalesTable = document.getElementById('prestPersonalesTable');
+if (prestPersonalesTable){
+  DATA.prestamosPersonales.forEach((p, i) => {
+    prestPersonalesTable.appendChild(el(`
+      <tr class="${i === 0 ? 'top' : ''}">
+        <td>${p.banco}</td><td>${p.tna}</td>
+      </tr>
+    `));
+  });
+}
+
+// ---- bancaria: préstamos hipotecarios ----
+const prestHipotecariosTable = document.getElementById('prestHipotecariosTable');
+if (prestHipotecariosTable){
+  DATA.prestamosHipotecarios.forEach((p, i) => {
+    prestHipotecariosTable.appendChild(el(`
+      <tr class="${i === 0 ? 'top' : ''}">
+        <td>${p.banco}</td><td>${p.tasa}</td><td>${p.modalidad}</td>
+      </tr>
+    `));
+  });
+}
+
 // ---- bancaria: MEP ----
 const mepCards = document.getElementById('mepCards');
 if (mepCards){
@@ -136,7 +185,10 @@ if (mepCards){
     mepCards.appendChild(el(`
       <div class="card ${m.top ? 'highlight' : ''}">
         <div class="label">${m.plataforma}</div>
-        <div class="value">$ ${m.precio}</div>
+        <div style="display:flex;flex-direction:column;gap:2px;margin-top:2px">
+          <div><span class="muted" style="font-size:0.7rem">Compra</span> <span class="value" style="font-size:0.98rem">$ ${m.compra}</span></div>
+          <div><span class="muted" style="font-size:0.7rem">Venta</span> <span class="value" style="font-size:0.98rem">$ ${m.venta}</span></div>
+        </div>
       </div>
     `));
   });
