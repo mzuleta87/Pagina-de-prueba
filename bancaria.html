@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bancaria — Cartera</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="ticker-wrap">
+  <div class="ticker mono" id="ticker"></div>
+</div>
+
+<header class="site">
+  <div class="container">
+    <div class="logo">Cartera</div>
+    <nav class="main">
+      <a href="index.html">Inicio</a>
+      <a href="financiera.html">Financiera</a>
+      <a href="bancaria.html" class="active">Bancaria</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero" style="padding:32px 0 24px">
+  <div class="container">
+    <h1 style="font-size:1.6rem">Bancaria</h1>
+    <p class="lead">Plazo fijo, billeteras virtuales y dólar MEP, comparados.</p>
+  </div>
+</div>
+
+<section style="padding-top:28px">
+  <div class="container">
+
+    <div class="tabs">
+      <button class="active" data-tab="pf">Plazo fijo</button>
+      <button data-tab="bv">Billeteras virtuales</button>
+      <button data-tab="mep">Dólar MEP</button>
+    </div>
+
+    <div class="tab-panel active" id="tab-pf">
+      <div class="section-head"><h2 style="font-size:1.1rem">Plazo fijo por banco</h2><span class="updated" id="upd-pf"></span></div>
+      <table class="data">
+        <thead><tr><th>Banco</th><th>TNA</th><th>TEA</th></tr></thead>
+        <tbody id="pfTable"></tbody>
+      </table>
+    </div>
+
+    <div class="tab-panel" id="tab-bv">
+      <div class="section-head"><h2 style="font-size:1.1rem">Billeteras virtuales</h2><span class="updated" id="upd-bv"></span></div>
+      <div class="grid-3" id="bvTop3" style="margin-bottom:20px"></div>
+      <table class="data">
+        <thead><tr><th>Billetera</th><th>TNA</th><th>Rinde diario</th></tr></thead>
+        <tbody id="bvTable"></tbody>
+      </table>
+    </div>
+
+    <div class="tab-panel" id="tab-mep">
+      <div class="section-head"><h2 style="font-size:1.1rem">Dólar MEP por plataforma</h2><span class="updated" id="upd-mep"></span></div>
+      <div class="grid-5" id="mepCards"></div>
+      <p class="muted" style="font-size:0.8rem;margin-top:10px">La más barata se destaca en verde. Precios de compra, orientativos.</p>
+    </div>
+
+  </div>
+</section>
+
+<footer class="site">
+  <div class="container">
+    <p>Cartera es una herramienta informativa e independiente. No constituye asesoramiento financiero.</p>
+  </div>
+</footer>
+
+<script src="js/data.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

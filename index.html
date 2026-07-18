@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cartera — Mercados y bancos de Argentina</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="ticker-wrap">
+  <div class="ticker mono" id="ticker"></div>
+</div>
+
+<header class="site">
+  <div class="container">
+    <div class="logo">Cartera</div>
+    <nav class="main">
+      <a href="index.html" class="active">Inicio</a>
+      <a href="financiera.html">Financiera</a>
+      <a href="bancaria.html">Bancaria</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="container">
+    <h1>Mercados y bancos, en un solo lugar</h1>
+    <p class="lead">Cotizaciones, ranking de lo más operado, tasas de plazo fijo, billeteras virtuales y dólar MEP — actualizado a diario.</p>
+  </div>
+</div>
+
+<section>
+  <div class="container">
+    <div class="section-head">
+      <h2>Lo más operado ahora</h2>
+      <span class="updated" id="upd1"></span>
+    </div>
+    <div class="grid-3" id="rankingCards" style="grid-template-columns:repeat(4,1fr)"></div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="container">
+    <div class="grid-2">
+
+      <div>
+        <h3>Financiera</h3>
+        <p class="muted" style="font-size:0.88rem">Cotizaciones destacadas del día</p>
+        <div style="display:flex;flex-direction:column;gap:8px;margin-top:12px" id="cotizPreview"></div>
+        <p style="margin-top:14px"><a href="financiera.html" class="pill">Ver todo →</a></p>
+      </div>
+
+      <div>
+        <h3>Bancaria</h3>
+        <p class="muted" style="font-size:0.88rem">Mejores tasas de hoy</p>
+        <div style="display:flex;flex-direction:column;gap:8px;margin-top:12px" id="bancoPreview"></div>
+        <p style="margin-top:14px"><a href="bancaria.html" class="pill">Ver todo →</a></p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="container">
+    <p>Cartera es una herramienta informativa e independiente. No constituye asesoramiento financiero.</p>
+    <p>Fuentes de datos: mercado, BCRA y plataformas bancarias. Ver detalle en cada sección.</p>
+  </div>
+</footer>
+
+<script src="js/data.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
