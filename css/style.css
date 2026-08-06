@@ -159,6 +159,33 @@ footer.site p{font-size:0.78rem;color:var(--ink-soft);margin:2px 0;}
 .spark-cell{padding-top:6px;padding-bottom:6px;}
 .spark{display:block;}
 
+/* ---- carteras sugeridas ---- */
+.disclaimer{
+  font-size:0.78rem;color:var(--warn);background:var(--warn-soft);
+  border:1px solid var(--warn);border-radius:var(--radius);
+  padding:10px 14px;margin-bottom:20px;
+}
+.composicion{display:flex;align-items:center;gap:28px;flex-wrap:wrap;}
+.donut{
+  width:130px;height:130px;border-radius:50%;flex-shrink:0;position:relative;
+}
+.donut::after{
+  content:"";position:absolute;inset:24%;background:var(--card);border-radius:50%;
+}
+.legend{display:flex;flex-direction:column;gap:9px;flex:1;min-width:180px;}
+.legend-item{display:flex;align-items:center;gap:8px;font-size:0.85rem;}
+.legend-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0;}
+.analisis-cell{font-family:'Inter',sans-serif !important;font-size:0.84rem;line-height:1.4;max-width:340px;}
+.fuentes{margin-bottom:22px;}
+.fuentes-titulo{font-size:0.75rem;color:var(--ink-soft);text-transform:uppercase;letter-spacing:0.04em;margin-bottom:6px;}
+.fuentes-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:4px;}
+.fuentes-list a{font-size:0.8rem;color:var(--accent);text-decoration:underline;text-underline-offset:2px;}
+.fuentes-list a:hover{color:var(--ink);}
+.no-recomendacion{
+  font-size:0.72rem;color:var(--warn);font-family:'IBM Plex Mono',monospace;
+  text-transform:uppercase;letter-spacing:0.03em;margin:0 0 18px;
+}
+
 /* ---- noticias ---- */
 .noticia{
   display:flex;align-items:baseline;gap:12px;
