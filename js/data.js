@@ -102,4 +102,65 @@ const DATA = {
     { plataforma: "Cocos", compra: "1.252,70", venta: "1.255,00" },
     { plataforma: "Bull Market", compra: "1.252,30", venta: "1.254,50" },
   ],
+
+  // Carteras sugeridas: combinación de activos por perfil de riesgo. "peso"
+  // en % debe sumar 100 dentro de cada cartera. Basado en criterios que
+  // vienen recomendando las mesas de asesoramiento locales para el mes;
+  // conviene revisar y actualizar este objeto periódicamente.
+  // Fuentes consultadas para armar y justificar las 3 carteras sugeridas.
+  // Conviene revisar/actualizar este listado cada vez que se actualicen
+  // los activos o pesos de "carteras".
+  fuentesCarteras: [
+    { nombre: "IOL invertironline — Portafolios sugeridos, agosto 2026", url: "https://www.invertironline.com/posts/reportes/portafolios-sugeridos-argentina-agosto-03-08-2026" },
+    { nombre: "Ámbito — En qué invertir en agosto: bonos, CEDEARs y cobertura cambiaria", url: "https://www.ambito.com/finanzas/en-que-invertir-agosto-las-apuestas-del-mercado-bonos-cedears-y-activos-cubrirse-del-dolar-n6303697" },
+    { nombre: "Bloomberg Línea — Estrategias en CEDEAR para 2026", url: "https://www.bloomberglinea.com/latinoamerica/argentina/en-que-invertir-en-argentina-las-estrategias-en-cedear-para-2026/" },
+    { nombre: "Alfy Inversiones — Riesgo país en baja: ¿CEDEARs o acciones argentinas?", url: "https://alfyinversiones.com.ar/blog/cartera-global-o-riesgo-argentino-donde-invertir-tras-la-baja-del-riesgo-pais/" },
+    { nombre: "Rankia — CEDEAR para invertir en agosto 2026", url: "https://www.rankia.com.ar/blog/cedear/7416409-3-cedear-invertir-agosto-2026" },
+    { nombre: "iProUp — Ranking de CEDEAR y acciones que recomiendan analistas", url: "https://www.iproup.com/economia-digital/62851-en-que-puedo-invertir-hoy-ranking-de-cedear-y-acciones-que-recomiendan-analistas" },
+  ],
+
+  carteras: [
+    {
+      id: "conservadora",
+      nombre: "Conservadora",
+      horizonte: "6-12 meses",
+      volatilidad: "Baja",
+      resumen: "Prioriza la preservación de capital y la cobertura cambiaria por sobre el rédito. Baja exposición a renta variable.",
+      activos: [
+        { ticker: "BRKB", tipo: "CEDEAR", peso: 25, analisis: "Holding diversificado de Warren Buffett; históricamente exhibe menor volatilidad que el promedio del mercado tecnológico, buena forma de dolarizar sin asumir riesgo de un solo sector." },
+        { ticker: "D30S6", tipo: "Bono", peso: 20, analisis: "Bono dólar-linked; cobertura cambiaria ante la posibilidad de que el tipo de cambio oficial converja hacia los dólares financieros." },
+        { ticker: "TLCPO", tipo: "Oblig. Neg.", peso: 20, analisis: "ON hard-dollar de corta duración; menor exposición al riesgo de tasa y buen perfil crediticio del emisor." },
+        { ticker: "KO", tipo: "CEDEAR", peso: 15, analisis: "Consumo defensivo con flujo de dividendos estable; baja sensibilidad al ciclo económico." },
+        { ticker: "S31L6", tipo: "Letra", peso: 20, analisis: "Instrumento de corto plazo en pesos; aporta liquidez inmediata y estabilidad al conjunto de la cartera." },
+      ],
+    },
+    {
+      id: "moderada",
+      nombre: "Moderada",
+      horizonte: "2-4 años",
+      volatilidad: "Media",
+      resumen: "Combina dolarización estructural vía CEDEARs con una porción acotada de renta variable local y renta fija en pesos.",
+      activos: [
+        { ticker: "MELI", tipo: "CEDEAR", peso: 25, analisis: "Líder regional de e-commerce y fintech; crecimiento estructural con exposición diversificada en toda Latinoamérica." },
+        { ticker: "AAPL", tipo: "CEDEAR", peso: 20, analisis: "Blue chip global de beta relativamente bajo dentro del sector tecnológico, con ingresos muy diversificados por geografía." },
+        { ticker: "YPFD", tipo: "Acción", peso: 20, analisis: "Energía argentina; perfil algo menos volátil que el sector bancario local, con impulso de largo plazo por Vaca Muerta." },
+        { ticker: "PLC4O", tipo: "Oblig. Neg.", peso: 20, analisis: "ON de duración media; balance razonable entre rendimiento ofrecido y riesgo crediticio asumido." },
+        { ticker: "S31L6", tipo: "Letra", peso: 15, analisis: "Instrumento de corto plazo en pesos; aporta liquidez y amortigua la volatilidad del resto de la cartera." },
+      ],
+    },
+    {
+      id: "agresiva",
+      nombre: "Agresiva",
+      horizonte: "4+ años",
+      volatilidad: "Alta",
+      resumen: "Busca maximizar el retorno apostando a la compresión del riesgo país y a sectores de alto crecimiento global. Mayor exposición a volatilidad.",
+      activos: [
+        { ticker: "GGAL", tipo: "Acción", peso: 25, analisis: "Banco líder del panel, alta sensibilidad a la compresión del riesgo país; suele ser de los papeles de mayor beta del Merval." },
+        { ticker: "PAMP", tipo: "Acción", peso: 20, analisis: "Exposición a energía; sector con fuerte potencial de expansión pero más volátil ante cambios regulatorios." },
+        { ticker: "NVDA", tipo: "CEDEAR", peso: 20, analisis: "Líder en semiconductores para inteligencia artificial; alto crecimiento pero con múltiplos exigentes." },
+        { ticker: "TSLA", tipo: "CEDEAR", peso: 20, analisis: "Alta volatilidad histórica; apuesta a movilidad eléctrica y disrupción tecnológica de largo plazo." },
+        { ticker: "VSCVO", tipo: "Oblig. Neg.", peso: 15, analisis: "ON de mayor rendimiento relativo dentro del panel, asumiendo más riesgo crediticio que emisores de primera línea." },
+      ],
+    },
+  ],
 };
