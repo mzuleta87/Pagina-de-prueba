@@ -239,7 +239,98 @@ if (prestHipotecariosTable){
   });
 }
 
-// ---- bancaria: MEP ----
+// ---- financiera: fuentes consultadas para carteras sugeridas ----
+const fuentesCarteras = document.getElementById('fuentesCarteras');
+if (fuentesCarteras && DATA.fuentesCarteras){
+  fuentesCarteras.appendChild(el(`<div class="fuentes-titulo">Fuentes consultadas</div>`));
+  const list = el(`<ul class="fuentes-list"></ul>`);
+  DATA.fuentesCarteras.forEach(f => {
+    list.appendChild(el(`<li><a href="${f.url}" target="_blank" rel="noopener">${f.nombre}</a></li>`));
+  });
+  fuentesCarteras.appendChild(list);
+}
+
+// ---- financiera: carteras sugeridas ----
+const carteraTabs = document.getElementById('carteraTabs');
+const carteraPanels = document.getElementById('carteraPanels');
+if (carteraTabs && carteraPanels && DATA.carteras){
+  DATA.carteras.forEach((cartera, i) => {
+    carteraTabs.appendChild(el(`
+      <button class="${i === 0 ? 'active' : ''}" data-cartera="${cartera.id}">${cartera.nombre}</button>
+    `));
+
+    const panel = el(`<div class="tab-panel ${i === 0 ? 'active' : ''}" id="panel-${cartera.id}"></div>`);
+
+    panel.appendChild(el(`
+      <div class="grid-3" style="margin-bottom:14px">
+        <div class="card"><div class="label">Perfil</div><div class="value" style="font-size:1rem">${cartera.nombre}</div></div>
+        <div class="card"><div class="label">Horizonte sugerido</div><div class="value" style="font-size:1rem">${cartera.horizonte}</div></div>
+        <div class="card"><div class="label">Volatilidad esperada</div><div class="value" style="font-size:1rem">${cartera.volatilidad}</div></div>
+      </div>
+    `));
+    panel.appendChild(el(`<p class="muted" style="font-size:0.85rem;margin-bottom:6px">${cartera.resumen}</p>`));
+    panel.appendChild(el(`<p class="no-recomendacion">No es una recomendación de inversión — ver aclaración completa arriba.</p>`));
+
+    // composición: donut (conic-gradient) + leyenda, reutilizando tickerColor()
+    let acc = 0;
+    const slices = cartera.activos.map(a => {
+      const color = tickerColor(a.ticker);
+      const start = acc;
+      acc += a.peso;
+      return `${color} ${start}% ${acc}%`;
+    }).join(',');
+
+    const compWrap = el(`<div class="composicion"></div>`);
+    compWrap.appendChild(el(`<div class="donut" style="background:conic-gradient(${slices})"></div>`));
+
+    const legend = el(`<div class="legend"></div>`);
+    cartera.activos.forEach(a => {
+      legend.appendChild(el(`
+        <div class="legend-item">
+          <span class="legend-dot" style="background:${tickerColor(a.ticker)}"></span>
+          <span>${a.ticker}</span>
+          <span class="muted mono" style="margin-left:auto">${a.peso}%</span>
+        </div>
+      `));
+    });
+    compWrap.appendChild(legend);
+    panel.appendChild(compWrap);
+
+    // tabla de activos: logo + tipo + peso + análisis
+    const table = el(`
+      <table class="data" style="margin-top:22px">
+        <thead><tr><th>Activo</th><th>Tipo</th><th>Peso</th><th>Análisis</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    `);
+    const tbody = table.querySelector('tbody');
+    cartera.activos.forEach(a => {
+      const row = el(`
+        <tr>
+          <td class="empresa-cell"></td>
+          <td>${a.tipo}</td>
+          <td>${a.peso}%</td>
+          <td class="analisis-cell">${a.analisis}</td>
+        </tr>
+      `);
+      row.querySelector('.empresa-cell').appendChild(buildLogo(a.ticker));
+      row.querySelector('.empresa-cell').appendChild(el(`<span>${a.ticker}</span>`));
+      tbody.appendChild(row);
+    });
+    panel.appendChild(table);
+
+    carteraPanels.appendChild(panel);
+  });
+
+  carteraTabs.querySelectorAll('button').forEach(btn => {
+    btn.addEventListener('click', () => {
+      carteraTabs.querySelectorAll('button').forEach(b => b.classList.remove('active'));
+      carteraPanels.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById('panel-' + btn.dataset.cartera).classList.add('active');
+    });
+  });
+}
 const mepCards = document.getElementById('mepCards');
 if (mepCards){
   DATA.mep.forEach(m => {
