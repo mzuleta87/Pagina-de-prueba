@@ -19,14 +19,24 @@ const DATA = {
     { ticker: "AAPL", precio: "9.410", variacion: "+1.1%", up: true },
   ],
 
+  // "historial" son precios intradía de referencia (apertura -> cierre) para
+  // dibujar el sparkline de cada fila. En producción esto va a venir de la
+  // serie horaria que devuelva la API de mercado, mismo patrón que el resto.
   cotizaciones: [
-    { ticker: "GGAL", tipo: "Acción", precio: "6.850", variacion: "+2.4%", volumen: "4.820 M", up: true },
-    { ticker: "YPFD", tipo: "Acción", precio: "41.200", variacion: "-0.8%", volumen: "1.900 M", up: false },
-    { ticker: "PAMP", tipo: "Acción", precio: "3.120", variacion: "+0.6%", volumen: "1.230 M", up: true },
-    { ticker: "AAPL", tipo: "CEDEAR", precio: "9.410", variacion: "+1.1%", volumen: "3.150 M", up: true },
-    { ticker: "TSLA", tipo: "CEDEAR", precio: "18.300", variacion: "-1.5%", volumen: "2.040 M", up: false },
-    { ticker: "S31L6", tipo: "Letra", precio: "98.40", variacion: "+0.1%", volumen: "2.410 M", up: true },
-    { ticker: "YMCXO", tipo: "Oblig. Neg.", precio: "101.20", variacion: "+0.2%", volumen: "980 M", up: true },
+    { ticker: "GGAL", tipo: "Acción", precio: "6.850", variacion: "+2.4%", volumen: "4.820 M", up: true,
+      historial: [6690,6705,6680,6720,6760,6740,6780,6810,6795,6830,6850] },
+    { ticker: "YPFD", tipo: "Acción", precio: "41.200", variacion: "-0.8%", volumen: "1.900 M", up: false,
+      historial: [41540,41480,41510,41390,41340,41410,41280,41250,41310,41230,41200] },
+    { ticker: "PAMP", tipo: "Acción", precio: "3.120", variacion: "+0.6%", volumen: "1.230 M", up: true,
+      historial: [3101,3095,3108,3090,3112,3105,3118,3110,3125,3115,3120] },
+    { ticker: "AAPL", tipo: "CEDEAR", precio: "9.410", variacion: "+1.1%", volumen: "3.150 M", up: true,
+      historial: [9310,9325,9300,9340,9360,9345,9375,9390,9380,9400,9410] },
+    { ticker: "TSLA", tipo: "CEDEAR", precio: "18.300", variacion: "-1.5%", volumen: "2.040 M", up: false,
+      historial: [18580,18560,18490,18520,18440,18400,18420,18350,18310,18330,18300] },
+    { ticker: "S31L6", tipo: "Letra", precio: "98.40", variacion: "+0.1%", volumen: "2.410 M", up: true,
+      historial: [98.30,98.28,98.32,98.31,98.35,98.33,98.36,98.38,98.37,98.39,98.40] },
+    { ticker: "YMCXO", tipo: "Oblig. Neg.", precio: "101.20", variacion: "+0.2%", volumen: "980 M", up: true,
+      historial: [101.00,100.95,101.05,100.98,101.10,101.05,101.12,101.08,101.15,101.18,101.20] },
   ],
 
   plazoFijo: [
