@@ -141,6 +141,24 @@ table.data tr.top td{color:var(--accent);font-weight:500;}
 footer.site{padding:26px 0;border-top:1px solid var(--line);}
 footer.site p{font-size:0.78rem;color:var(--ink-soft);margin:2px 0;}
 
+/* ---- logo de empresa (tabla de cotizaciones) ---- */
+.empresa-cell{display:flex;align-items:center;gap:8px;font-family:'Inter',sans-serif !important;}
+.logo-wrap{
+  width:22px;height:22px;flex-shrink:0;
+  display:inline-flex;align-items:center;justify-content:center;
+  border-radius:50%;overflow:hidden;background:var(--accent-soft);
+}
+.logo-img{width:100%;height:100%;object-fit:cover;display:block;}
+.logo-mono{
+  width:100%;height:100%;display:flex;align-items:center;justify-content:center;
+  color:#fff;font-family:'IBM Plex Mono',monospace;font-size:0.62rem;font-weight:500;
+  letter-spacing:0.02em;
+}
+
+/* ---- sparkline diario ---- */
+.spark-cell{padding-top:6px;padding-bottom:6px;}
+.spark{display:block;}
+
 /* ---- noticias ---- */
 .noticia{
   display:flex;align-items:baseline;gap:12px;
