@@ -8,6 +8,56 @@ function el(html){
   return t.content.firstElementChild;
 }
 
+// ---- logos de empresa (con fallback a monograma) ----
+// Intenta el logo real vía Financial Modeling Prep; si no existe (o el
+// ticker no es una acción/CEDEAR de empresa, ej. letras u ONs), cae a un
+// monograma de color estable generado a partir del ticker.
+const LOGO_PALETTE = ['#2E7D5B','#B5652E','#4A5850','#6E8F7C','#A6693C','#2F5C46'];
+
+function tickerColor(ticker){
+  let hash = 0;
+  for (let i = 0; i < ticker.length; i++){
+    hash = ticker.charCodeAt(i) + ((hash << 5) - hash);
+  }
+  return LOGO_PALETTE[Math.abs(hash) % LOGO_PALETTE.length];
+}
+
+function buildLogo(ticker){
+  const wrap = el('<span class="logo-wrap"></span>');
+  const img = document.createElement('img');
+  img.className = 'logo-img';
+  img.alt = ticker;
+  img.loading = 'lazy';
+  img.src = `https://financialmodelingprep.com/image-stock/${ticker}.png`;
+  img.onerror = () => {
+    wrap.innerHTML = '';
+    const mono = el(`<span class="logo-mono" style="background:${tickerColor(ticker)}">${ticker.slice(0,2)}</span>`);
+    wrap.appendChild(mono);
+  };
+  wrap.appendChild(img);
+  return wrap;
+}
+
+// ---- sparkline diario ----
+// values: array de precios intradía (apertura -> último). Dibuja una
+// polyline simple normalizada al rango de la serie.
+function buildSparkline(values, up){
+  const w = 64, h = 26, pad = 3;
+  const min = Math.min(...values), max = Math.max(...values);
+  const range = (max - min) || 1;
+  const step = (w - pad * 2) / (values.length - 1);
+  const points = values.map((v, i) => {
+    const x = pad + i * step;
+    const y = pad + (1 - (v - min) / range) * (h - pad * 2);
+    return `${x.toFixed(1)},${y.toFixed(1)}`;
+  }).join(' ');
+  const color = up ? '#2E7D5B' : '#B5652E';
+  const svgHtml = `<svg viewBox="0 0 ${w} ${h}" width="${w}" height="${h}" class="spark" aria-hidden="true">
+    <polyline points="${points}" fill="none" stroke="${color}" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+  </svg>`;
+  return el(svgHtml);
+}
+
 // ---- ticker (todas las páginas) ----
 const tickerEl = document.getElementById('ticker');
 if (tickerEl){
@@ -72,15 +122,26 @@ if (bancoPreview){
 const cotizTable = document.getElementById('cotizTable');
 if (cotizTable){
   DATA.cotizaciones.forEach(c => {
-    cotizTable.appendChild(el(`
+    const row = el(`
       <tr>
-        <td>${c.ticker}</td>
+        <td class="empresa-cell"></td>
         <td>${c.tipo}</td>
         <td>${c.precio}</td>
         <td style="color:${c.up ? '#2E7D5B' : '#B5652E'}">${c.variacion}</td>
+        <td class="spark-cell"></td>
         <td>${c.volumen}</td>
       </tr>
-    `));
+    `);
+    const empresaCell = row.querySelector('.empresa-cell');
+    empresaCell.appendChild(buildLogo(c.ticker));
+    empresaCell.appendChild(el(`<span>${c.ticker}</span>`));
+
+    const sparkCell = row.querySelector('.spark-cell');
+    if (c.historial && c.historial.length > 1){
+      sparkCell.appendChild(buildSparkline(c.historial, c.up));
+    }
+
+    cotizTable.appendChild(row);
   });
 }
 
