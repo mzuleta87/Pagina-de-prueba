@@ -34,6 +34,7 @@
       <button data-tab="bv">Billeteras virtuales</button>
       <button data-tab="prest">Préstamos</button>
       <button data-tab="mep">Dólar MEP</button>
+      <button data-tab="atc">Atención al cliente</button>
     </div>
 
     <div class="tab-panel active" id="tab-pf">
@@ -71,6 +72,32 @@
       <div class="section-head"><h2 style="font-size:1.1rem">Dólar MEP por plataforma</h2><span class="updated" id="upd-mep"></span></div>
       <div class="grid-5" id="mepCards"></div>
       <p class="muted" style="font-size:0.8rem;margin-top:10px">La plataforma con mejor precio de venta se destaca en verde. Valores orientativos.</p>
+    </div>
+
+    <div class="tab-panel" id="tab-atc">
+
+      <div class="section-head"><h2 style="font-size:1.1rem">Denuncia de extravío o robo — tarjeta de débito</h2><span class="updated" id="upd-atc1"></span></div>
+      <table class="data" style="margin-bottom:26px">
+        <thead><tr><th>Red</th><th>Teléfono</th><th>Horario</th></tr></thead>
+        <tbody id="redesTable"></tbody>
+      </table>
+
+      <div class="section-head"><h2 style="font-size:1.1rem">Centros de servicio Visa y Mastercard</h2></div>
+      <table class="data" style="margin-bottom:26px">
+        <thead><tr><th>Servicio</th><th>Teléfono</th><th>Detalle</th></tr></thead>
+        <tbody id="tarjetasTable"></tbody>
+      </table>
+
+      <div class="section-head"><h2 style="font-size:1.1rem">Requisitos para abrir una caja de ahorro (persona física)</h2></div>
+      <ul class="req-list" id="requisitosCajaList" style="margin-bottom:26px"></ul>
+
+      <div class="section-head"><h2 style="font-size:1.1rem">Centros de contacto — bancos principales</h2></div>
+      <table class="data">
+        <thead><tr><th>Banco</th><th>Teléfono</th><th>Horario</th><th>Sitio web</th></tr></thead>
+        <tbody id="bancosContactoTable"></tbody>
+      </table>
+      <div class="fuentes" id="fuentesAtc" style="margin-top:18px"></div>
+
     </div>
 
   </div>
