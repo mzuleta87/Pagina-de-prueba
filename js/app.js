@@ -331,6 +331,52 @@ if (carteraTabs && carteraPanels && DATA.carteras){
     });
   });
 }
+
+// ---- bancaria: atención al cliente ----
+const redesTable = document.getElementById('redesTable');
+if (redesTable && DATA.atencionCliente){
+  DATA.atencionCliente.redes.forEach(r => {
+    redesTable.appendChild(el(`
+      <tr><td>${r.nombre}</td><td class="mono">${r.telefono}</td><td>${r.horario}</td></tr>
+    `));
+  });
+}
+
+const tarjetasTable = document.getElementById('tarjetasTable');
+if (tarjetasTable && DATA.atencionCliente){
+  DATA.atencionCliente.tarjetas.forEach(t => {
+    tarjetasTable.appendChild(el(`
+      <tr><td>${t.nombre}</td><td class="mono">${t.telefono}</td><td style="font-family:'Inter',sans-serif;font-size:0.84rem">${t.detalle}</td></tr>
+    `));
+  });
+}
+
+const requisitosCajaList = document.getElementById('requisitosCajaList');
+if (requisitosCajaList && DATA.atencionCliente){
+  DATA.atencionCliente.requisitosCaja.forEach(req => {
+    requisitosCajaList.appendChild(el(`<li>${req}</li>`));
+  });
+}
+
+const bancosContactoTable = document.getElementById('bancosContactoTable');
+if (bancosContactoTable && DATA.atencionCliente){
+  DATA.atencionCliente.bancos.forEach(b => {
+    bancosContactoTable.appendChild(el(`
+      <tr><td>${b.nombre}</td><td class="mono">${b.telefono}</td><td>${b.horario}</td><td><a href="${b.web}" target="_blank" rel="noopener" class="pill">Sitio oficial →</a></td></tr>
+    `));
+  });
+}
+
+const fuentesAtc = document.getElementById('fuentesAtc');
+if (fuentesAtc && DATA.atencionCliente){
+  fuentesAtc.appendChild(el(`<div class="fuentes-titulo">Fuentes consultadas</div>`));
+  const list = el(`<ul class="fuentes-list"></ul>`);
+  DATA.atencionCliente.fuentes.forEach(f => {
+    list.appendChild(el(`<li><a href="${f.url}" target="_blank" rel="noopener">${f.nombre}</a></li>`));
+  });
+  fuentesAtc.appendChild(list);
+}
+
 const mepCards = document.getElementById('mepCards');
 if (mepCards){
   DATA.mep.forEach(m => {
