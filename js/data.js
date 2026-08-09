@@ -93,3 +93,52 @@ const DATA = {
     { plataforma: "Bull Market", compra: "1.252,30", venta: "1.254,50" },
   ],
 };
+fuentesCarteras: [
+    { nombre: "BYMA — Bolsas y Mercados Argentinos", url: "https://www.byma.com.ar" },
+    { nombre: "Rava Bursátil", url: "https://www.rava.com" },
+    { nombre: "IOL invertir online", url: "https://www.invertironline.com" },
+  ],
+
+  carteras: [
+    {
+      id: "conservador",
+      nombre: "Conservador",
+      horizonte: "6-12 meses",
+      volatilidad: "Baja",
+      resumen: "Prioriza preservar capital y cobertura frente a la inflación, con mayor peso en instrumentos de renta fija de corto plazo y baja duration.",
+      activos: [
+        { ticker: "S31L6", tipo: "Letra", peso: 40, analisis: "Letra del Tesoro de corto plazo, baja volatilidad y buena previsibilidad de flujo." },
+        { ticker: "YMCXO", tipo: "Oblig. Neg.", peso: 30, analisis: "ON corporativa con flujo de renta en dólares, riesgo crediticio moderado." },
+        { ticker: "GGAL", tipo: "Acción", peso: 15, analisis: "Exposición acotada a renta variable local, sector financiero." },
+        { ticker: "AAPL", tipo: "CEDEAR", peso: 15, analisis: "Cobertura dolarizada con baja correlación al riesgo argentino." },
+      ],
+    },
+    {
+      id: "moderado",
+      nombre: "Moderado",
+      horizonte: "1-3 años",
+      volatilidad: "Media",
+      resumen: "Balance entre renta fija corporativa y renta variable, buscando crecimiento con volatilidad controlada.",
+      activos: [
+        { ticker: "YMCXO", tipo: "Oblig. Neg.", peso: 25, analisis: "Base de renta en dólares con riesgo crediticio moderado." },
+        { ticker: "PNXCO", tipo: "Oblig. Neg.", peso: 20, analisis: "Complementa duration y diversifica emisor." },
+        { ticker: "GGAL", tipo: "Acción", peso: 20, analisis: "Banco líder local, sensible al ciclo de tasas y actividad." },
+        { ticker: "PAMP", tipo: "Acción", peso: 15, analisis: "Exposición al sector energético argentino." },
+        { ticker: "AAPL", tipo: "CEDEAR", peso: 20, analisis: "Diversificación internacional y cobertura cambiaria." },
+      ],
+    },
+    {
+      id: "agresivo",
+      nombre: "Agresivo",
+      horizonte: "3+ años",
+      volatilidad: "Alta",
+      resumen: "Foco en crecimiento de capital vía renta variable local e internacional, asumiendo mayor volatilidad de corto plazo.",
+      activos: [
+        { ticker: "GGAL", tipo: "Acción", peso: 25, analisis: "Principal apuesta al sector financiero local." },
+        { ticker: "YPFD", tipo: "Acción", peso: 20, analisis: "Exposición a energía, alta sensibilidad a precios de commodities." },
+        { ticker: "PAMP", tipo: "Acción", peso: 15, analisis: "Generación eléctrica, componente cíclico." },
+        { ticker: "AAPL", tipo: "CEDEAR", peso: 20, analisis: "Tecnología global, ancla de crecimiento en dólares." },
+        { ticker: "TSLA", tipo: "CEDEAR", peso: 20, analisis: "Alta volatilidad, componente de mayor riesgo/retorno." },
+      ],
+    },
+  ],
