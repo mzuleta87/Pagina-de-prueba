@@ -92,8 +92,8 @@ const DATA = {
     { plataforma: "Cocos", compra: "1.252,70", venta: "1.255,00" },
     { plataforma: "Bull Market", compra: "1.252,30", venta: "1.254,50" },
   ],
-};
-fuentesCarteras: [
+
+  fuentesCarteras: [
     { nombre: "BYMA — Bolsas y Mercados Argentinos", url: "https://www.byma.com.ar" },
     { nombre: "Rava Bursátil", url: "https://www.rava.com" },
     { nombre: "IOL invertir online", url: "https://www.invertironline.com" },
@@ -142,3 +142,4 @@ fuentesCarteras: [
       ],
     },
   ],
+};
