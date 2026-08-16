@@ -296,10 +296,10 @@ if (carteraTabs && carteraPanels && DATA.carteras){
     compWrap.appendChild(legend);
     panel.appendChild(compWrap);
 
-    // tabla de activos: logo + tipo + peso + análisis
+    // tabla de activos: logo + tipo + calificación + peso + análisis
     const table = el(`
       <table class="data" style="margin-top:22px">
-        <thead><tr><th>Activo</th><th>Tipo</th><th>Peso</th><th>Análisis</th></tr></thead>
+        <thead><tr><th>Activo</th><th>Tipo</th><th>Calificación</th><th>Peso</th><th>Análisis</th></tr></thead>
         <tbody></tbody>
       </table>
     `);
@@ -309,6 +309,7 @@ if (carteraTabs && carteraPanels && DATA.carteras){
         <tr>
           <td class="empresa-cell"></td>
           <td>${a.tipo}</td>
+          <td class="mono">${a.calificacion || '—'}</td>
           <td>${a.peso}%</td>
           <td class="analisis-cell">${a.analisis}</td>
         </tr>
