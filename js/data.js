@@ -93,6 +93,115 @@ const DATA = {
     { plataforma: "Bull Market", compra: "1.252,30", venta: "1.254,50" },
   ],
 
+  atencionCliente: {
+
+    redes: [
+      { nombre: "Red Link", telefono: "0800-888-5465", horario: "Las 24 hs, todos los días" },
+      { nombre: "Banelco", telefono: "(011) 4320-2500", horario: "Las 24 hs, todos los días" },
+    ],
+
+    tarjetas: [
+      { nombre: "Visa — denuncias", telefono: "0810-666-3368", detalle: "Resto del país. AMBA: (011) 4379-3333" },
+      { nombre: "Mastercard — denuncias", telefono: "0810-666-2662", detalle: "Pérdida o robo de tarjeta de crédito" },
+      { nombre: "Plan V (Visa) — cuotificar resumen o consumos", telefono: "0810-222-2868", detalle: "Financiar el saldo del resumen o compras puntuales en cuotas fijas" },
+      { nombre: "Mastercard Cuotas — cuotificar resumen o consumos", telefono: "0800-222-3470", detalle: "Equivalente de Mastercard al Plan V de Visa. Lun a vie de 8 a 20 hs" },
+    ],
+
+    requisitosCaja: [
+      "DNI vigente (original y copia)",
+      "CUIL o CUIT",
+      "Comprobante de domicilio si la dirección no coincide con el DNI (factura de servicio no mayor a 90 días)",
+      "Comprobante de ingresos si se solicita en simultáneo una tarjeta de crédito",
+      "Depósito mínimo inicial, cuando el banco lo exige (varía según entidad y tipo de cuenta)",
+    ],
+
+    bancos: [
+      { nombre: "Banco Nación", telefono: "0810-666-4444", horario: "Lun a vie de 8 a 20 hs", web: "https://www.bna.com.ar" },
+      { nombre: "Banco Provincia", telefono: "0810-222-2776", horario: "Lun a vie de 8 a 22 hs", web: "https://www.bancoprovincia.com.ar" },
+      { nombre: "BBVA (ex Francés)", telefono: "0800-333-0303", horario: "Lun a vie de 7:30 a 21 hs", web: "https://www.bbva.com.ar" },
+      { nombre: "Santander", telefono: "0810-333-2400", horario: "Lun a vie de 8 a 21 hs", web: "https://www.santander.com.ar" },
+      { nombre: "Galicia", telefono: "0810-444-6500", horario: "Las 24 hs, todos los días", web: "https://www.bancogalicia.com" },
+      { nombre: "ICBC", telefono: "0810-444-4652", horario: "Lun a vie de 8 a 20 hs", web: "https://www.icbc.com.ar" },
+    ],
+
+    fuentes: [
+      { nombre: "Banco Provincia — Atención a usuarios", url: "https://www.bancoprovincia.com.ar/web/atencion_usuarios" },
+      { nombre: "Banco Nación — Contactenos", url: "https://www.bna.com.ar/Home/Contactenos" },
+      { nombre: "BBVA Argentina — Atención al cliente", url: "https://www.bbva.com.ar/personas/atencion-al-cliente.html" },
+      { nombre: "Banelco — Perdí mi tarjeta", url: "https://www.banelco.com/perdi-mi-tarjeta" },
+      { nombre: "Visa — Plan V", url: "https://www.bancoprovincia.com.ar/CDN/Get/Plan_V" },
+    ],
+
+  },
+
+  promocionesBancos: [
+    {
+      banco: "Banco Nación",
+      tienda: { nombre: "Tienda BNA+", url: "https://www.tiendabna.com.ar" },
+      destacados: [
+        "BNA Viajes: paquetes y pasajes con financiación en cuotas",
+        "Programa Elegí+ y Aerolíneas Plus para sumar beneficios y millas",
+        "Promos estacionales con tarjetas Nativa Visa/Mastercard (bonificación de comisiones por altas nuevas)",
+      ],
+      sitioOficial: "https://www.bna.com.ar",
+    },
+    {
+      banco: "Banco Provincia",
+      tienda: { nombre: "Provincia Compras", url: "https://www.provinciacompras.com.ar" },
+      destacados: [
+        "Marketplace propio con cuotas sin interés (varían según campaña)",
+        "Cuenta DNI: reintegros rotativos en comercios de cercanía, ferias, supermercados y gastronomía",
+        "Los porcentajes y topes cambian todos los meses — se consultan en la app Cuenta DNI",
+      ],
+      sitioOficial: "https://www.bancoprovincia.com.ar",
+    },
+    {
+      banco: "BBVA",
+      tienda: { nombre: "Shop (dentro de la app BBVA Go)", url: "" },
+      destacados: [
+        "No tiene tienda web propia: se accede desde el botón \"Shop\" en la app BBVA Go",
+        "Programa Go: descuentos y cuotas sin interés en comercios adheridos",
+        "Financiación de saldos y consumos de tarjeta desde la app (sin llamar a Plan V)",
+      ],
+      sitioOficial: "https://www.bbva.com.ar",
+    },
+    {
+      banco: "Santander",
+      tienda: { nombre: "Sin marketplace propio", url: "" },
+      destacados: [
+        "Programa SuperClub+: suma puntos por consumo con tarjetas, cuenta sueldo e inversión en Superfondos",
+        "Los puntos se canjean por viajes, vouchers/gift cards o crédito directo en la tarjeta",
+      ],
+      sitioOficial: "https://www.santander.com.ar",
+    },
+    {
+      banco: "Galicia",
+      tienda: { nombre: "Tienda Galicia", url: "https://tienda.galicia.ar" },
+      destacados: [
+        "Marketplace propio, incluye canje de puntos del programa de beneficios",
+        "Buscador de promociones por marca o rubro, con reintegros y cuotas sin interés",
+      ],
+      sitioOficial: "https://www.galicia.ar",
+    },
+    {
+      banco: "ICBC",
+      tienda: { nombre: "ICBC Mall", url: "https://mall.icbc.com.ar" },
+      destacados: [
+        "Marketplace propio con envío gratis en productos seleccionados",
+        "Programa ICBC Club: puntos canjeables por productos, viajes y tarjetas de regalo",
+      ],
+      sitioOficial: "https://www.icbc.com.ar",
+    },
+  ],
+
+  fuentesPromociones: [
+    { nombre: "Provincia Compras — Preguntas frecuentes", url: "https://www.provinciacompras.com.ar/preguntas-frecuentes" },
+    { nombre: "BNA — Tienda BNA+ y BNA Viajes", url: "https://bna.com.ar" },
+    { nombre: "Banco Galicia — Tienda Galicia", url: "https://tienda.galicia.ar" },
+    { nombre: "Santander — SuperClub+", url: "https://www.santander.com.ar/personas/superclub-mas" },
+    { nombre: "ICBC — ICBC Club", url: "https://www.icbc.com.ar/personas/productos-servicios/icbc-club" },
+  ],
+
   fuentesCarteras: [
     { nombre: "BYMA — Bolsas y Mercados Argentinos", url: "https://www.byma.com.ar" },
     { nombre: "Rava Bursátil", url: "https://www.rava.com" },
