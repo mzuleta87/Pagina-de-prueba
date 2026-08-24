@@ -127,6 +127,53 @@ table.data tr.top td{color:var(--accent);font-weight:500;}
   background:var(--accent-soft);color:var(--accent);font-family:'Inter',sans-serif;
 }
 
+/* ---- bancaria: nav de anclas + secciones apiladas ---- */
+.quicknav{
+  position:sticky;top:0;z-index:10;
+  background:var(--bg);border-bottom:1px solid var(--line);
+}
+.quicknav-inner{
+  display:flex;gap:4px;overflow-x:auto;padding:10px 20px;
+  -ms-overflow-style:none;scrollbar-width:none;
+}
+.quicknav-inner::-webkit-scrollbar{display:none;}
+.quicknav-inner a{
+  font-size:0.84rem;color:var(--ink-soft);white-space:nowrap;
+  padding:6px 12px;border-radius:20px;border:1px solid var(--line);
+  flex-shrink:0;
+}
+.quicknav-inner a:hover{color:var(--ink);border-color:var(--accent);background:var(--accent-soft);}
+.bancaria-block{
+  padding:26px 0;border-bottom:1px solid var(--line);
+  scroll-margin-top:56px;
+}
+.bancaria-block:first-child{padding-top:0;}
+.bancaria-block--last{border-bottom:none;padding-bottom:6px;}
+
+/* ---- bancaria: tarjetas de promociones/tiendas por banco ---- */
+.banco-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+@media (max-width:720px){.banco-grid{grid-template-columns:1fr;}}
+.banco-card{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+  padding:16px 18px;
+}
+.banco-card h3{font-size:0.98rem;margin:0 0 10px;}
+.banco-card .tienda-link{
+  display:inline-block;font-size:0.82rem;color:var(--accent);
+  background:var(--accent-soft);padding:3px 10px;border-radius:20px;
+  margin-bottom:10px;
+}
+.banco-card ul{margin:0 0 12px;padding-left:18px;font-size:0.85rem;line-height:1.55;color:var(--ink-soft);}
+.banco-card ul li{margin-bottom:2px;}
+.sitio-verificado{
+  display:flex;align-items:center;gap:6px;font-size:0.78rem;
+  padding-top:10px;border-top:1px solid var(--line);
+}
+.sitio-verificado a{color:var(--ink);font-weight:500;}
+.sitio-verificado a:hover{color:var(--accent);}
+.sitio-verificado .lock{color:var(--accent);font-family:'IBM Plex Mono',monospace;}
+.sitio-verificado .leyenda{color:var(--ink-soft);font-size:0.72rem;display:block;margin-top:2px;}
+
 /* ---- tabs ---- */
 .tabs{display:flex;gap:6px;margin-bottom:18px;border-bottom:1px solid var(--line);}
 .tabs button{
@@ -137,6 +184,9 @@ table.data tr.top td{color:var(--accent);font-weight:500;}
 .tabs button.active{color:var(--ink);border-color:var(--accent);font-weight:500;}
 .tab-panel{display:none;}
 .tab-panel.active{display:block;}
+
+.req-list{margin:0;padding-left:20px;font-size:0.88rem;line-height:1.7;}
+.req-list li{margin-bottom:2px;}
 
 footer.site{padding:26px 0;border-top:1px solid var(--line);}
 footer.site p{font-size:0.78rem;color:var(--ink-soft);margin:2px 0;}
