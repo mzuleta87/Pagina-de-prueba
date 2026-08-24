@@ -26,18 +26,21 @@
   </div>
 </div>
 
+<nav class="quicknav">
+  <div class="container quicknav-inner">
+    <a href="#sec-pf">Plazo fijo</a>
+    <a href="#sec-bv">Billeteras</a>
+    <a href="#sec-prest">Préstamos</a>
+    <a href="#sec-mep">Dólar MEP</a>
+    <a href="#sec-promos">Promos y tiendas</a>
+    <a href="#sec-atc">Atención al cliente</a>
+  </div>
+</nav>
+
 <section style="padding-top:28px">
   <div class="container">
 
-    <div class="tabs">
-      <button class="active" data-tab="pf">Plazo fijo</button>
-      <button data-tab="bv">Billeteras virtuales</button>
-      <button data-tab="prest">Préstamos</button>
-      <button data-tab="mep">Dólar MEP</button>
-      <button data-tab="atc">Atención al cliente</button>
-    </div>
-
-    <div class="tab-panel active" id="tab-pf">
+    <div class="bancaria-block" id="sec-pf">
       <div class="section-head"><h2 style="font-size:1.1rem">Plazo fijo por banco</h2><span class="updated" id="upd-pf"></span></div>
       <table class="data">
         <thead><tr><th>Banco</th><th>TNA</th><th>TEA</th></tr></thead>
@@ -45,7 +48,7 @@
       </table>
     </div>
 
-    <div class="tab-panel" id="tab-bv">
+    <div class="bancaria-block" id="sec-bv">
       <div class="section-head"><h2 style="font-size:1.1rem">Billeteras virtuales</h2><span class="updated" id="upd-bv"></span></div>
       <div class="grid-3" id="bvTop3" style="margin-bottom:20px"></div>
       <table class="data">
@@ -54,7 +57,7 @@
       </table>
     </div>
 
-    <div class="tab-panel" id="tab-prest">
+    <div class="bancaria-block" id="sec-prest">
       <div class="section-head"><h2 style="font-size:1.1rem">Préstamos personales</h2><span class="updated" id="upd-prest1"></span></div>
       <table class="data">
         <thead><tr><th>Banco</th><th>TNA</th></tr></thead>
@@ -68,30 +71,38 @@
       </table>
     </div>
 
-    <div class="tab-panel" id="tab-mep">
+    <div class="bancaria-block" id="sec-mep">
       <div class="section-head"><h2 style="font-size:1.1rem">Dólar MEP por plataforma</h2><span class="updated" id="upd-mep"></span></div>
       <div class="grid-5" id="mepCards"></div>
       <p class="muted" style="font-size:0.8rem;margin-top:10px">La plataforma con mejor precio de venta se destaca en verde. Valores orientativos.</p>
     </div>
 
-    <div class="tab-panel" id="tab-atc">
+    <div class="bancaria-block" id="sec-promos">
+      <div class="section-head"><h2 style="font-size:1.1rem">Promociones y tiendas online</h2></div>
+      <p class="muted" style="font-size:0.82rem;margin:-6px 0 16px">Los porcentajes de descuento cambian todos los meses — acá van los programas y tiendas oficiales de cada banco. Para ver la promo vigente, entrá al link oficial.</p>
+      <div class="banco-grid" id="promosGrid"></div>
+    </div>
 
-      <div class="section-head"><h2 style="font-size:1.1rem">Denuncia de extravío o robo — tarjeta de débito</h2><span class="updated" id="upd-atc1"></span></div>
+    <div class="bancaria-block bancaria-block--last" id="sec-atc">
+
+      <div class="section-head"><h2 style="font-size:1.1rem">Información al cliente</h2></div>
+
+      <h3 style="font-size:0.92rem;margin:0 0 10px">Denuncia de extravío o robo — tarjeta de débito</h3>
       <table class="data" style="margin-bottom:26px">
         <thead><tr><th>Red</th><th>Teléfono</th><th>Horario</th></tr></thead>
         <tbody id="redesTable"></tbody>
       </table>
 
-      <div class="section-head"><h2 style="font-size:1.1rem">Centros de servicio Visa y Mastercard</h2></div>
+      <h3 style="font-size:0.92rem;margin:0 0 10px">Centros de servicio Visa y Mastercard</h3>
       <table class="data" style="margin-bottom:26px">
         <thead><tr><th>Servicio</th><th>Teléfono</th><th>Detalle</th></tr></thead>
         <tbody id="tarjetasTable"></tbody>
       </table>
 
-      <div class="section-head"><h2 style="font-size:1.1rem">Requisitos para abrir una caja de ahorro (persona física)</h2></div>
+      <h3 style="font-size:0.92rem;margin:0 0 10px">Requisitos para abrir una caja de ahorro (persona física)</h3>
       <ul class="req-list" id="requisitosCajaList" style="margin-bottom:26px"></ul>
 
-      <div class="section-head"><h2 style="font-size:1.1rem">Centros de contacto — bancos principales</h2></div>
+      <h3 style="font-size:0.92rem;margin:0 0 10px">Centros de contacto — bancos principales</h3>
       <table class="data">
         <thead><tr><th>Banco</th><th>Teléfono</th><th>Horario</th><th>Sitio web</th></tr></thead>
         <tbody id="bancosContactoTable"></tbody>
