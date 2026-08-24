@@ -145,16 +145,6 @@ if (cotizTable){
   });
 }
 
-// ---- bancaria: tabs ----
-document.querySelectorAll('.tabs button').forEach(btn => {
-  btn.addEventListener('click', () => {
-    document.querySelectorAll('.tabs button').forEach(b => b.classList.remove('active'));
-    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
-    btn.classList.add('active');
-    document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
-  });
-});
-
 // ---- bancaria: plazo fijo ----
 const pfTable = document.getElementById('pfTable');
 if (pfTable){
@@ -390,5 +380,36 @@ if (mepCards){
         </div>
       </div>
     `));
+  });
+}
+
+// ---- bancaria: promociones y tiendas online por banco ----
+const promosGrid = document.getElementById('promosGrid');
+if (promosGrid && DATA.promocionesBancos){
+  DATA.promocionesBancos.forEach(b => {
+    const card = el(`<div class="banco-card"></div>`);
+    card.appendChild(el(`<h3>${b.banco}</h3>`));
+
+    if (b.tienda.url){
+      card.appendChild(el(`<a href="${b.tienda.url}" target="_blank" rel="noopener" class="tienda-link">${b.tienda.nombre} →</a>`));
+    } else {
+      card.appendChild(el(`<span class="tienda-link" style="background:none;padding-left:0">${b.tienda.nombre}</span>`));
+    }
+
+    const list = el(`<ul></ul>`);
+    b.destacados.forEach(d => list.appendChild(el(`<li>${d}</li>`)));
+    card.appendChild(list);
+
+    card.appendChild(el(`
+      <div class="sitio-verificado">
+        <span class="lock">🔒</span>
+        <span>
+          <a href="${b.sitioOficial}" target="_blank" rel="noopener">Sitio oficial de ${b.banco} →</a>
+          <span class="leyenda">Dominio https verificado. Vas a salir de Cartera hacia el sitio del banco.</span>
+        </span>
+      </div>
+    `));
+
+    promosGrid.appendChild(card);
   });
 }
